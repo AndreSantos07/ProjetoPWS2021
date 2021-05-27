@@ -22,11 +22,11 @@ Router::get('test/index',  'TestController/index');
 
 Router::get('aeroportos/index',	'AeroportoController/index');
 
+//Caminhos Ricardo
 
+Router::get('voos/voo',	'VooController/index');
 
-
-
-
+Router::get('login/validar',	'UtilizadorController/validar');
 
 
 
