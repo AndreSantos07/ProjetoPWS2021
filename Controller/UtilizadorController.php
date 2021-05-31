@@ -27,18 +27,39 @@ class UtilizadorController extends BaseController implements ResourceControllerI
     }
 
     public function validar(){
-        $user="rromao236";
-        //$utilizador = Utilizadores::find_all_by_username($user);
+        $user=Post::get("user");
+        $pass=Post::get("pass");
 
-        $utilizador = User::find_all_by_username($user);
+        $passenc=md5($pass);
+
+
+        $utilizador = User::first('all', array('conditions' => "username = '$user' AND pass = '$pass'"));
         //Dumper::dump($utilizador);
 
-        //$_SESSION['tipo'] = $utilizador->tipoperfil;
+        if($utilizador!=''){
 
-        /*if($_SESSION['tipo'] == "passageiro"){
-            echo "É PASSAGEIRO";
-            //return View::make('voos.voo');
-        }*/
+            $_SESSION['tipo'] = $utilizador->tipoperfil;
+
+            switch($_SESSION['tipo']){
+                case $_SESSION['tipo'] == "passageiro":
+                    echo "É PASSAGEIRO";
+
+                    break;
+
+                case $_SESSION['tipo'] == "administrador":
+                    echo "É ADMINISTRADOR";
+                    Redirect::toRoute('admistrador/admistrador');
+                    break;
+
+                case $_SESSION['tipo'] == "operador":
+                    echo "É OPERADOR";
+                    break;
+
+                case $_SESSION['tipo'] == "gestor":
+                    echo "É GESTOR";
+                    break;
+            }
+        }
     }
 
     public function start(){
