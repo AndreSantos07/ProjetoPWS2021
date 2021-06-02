@@ -18,11 +18,37 @@ Router::get('home/index',	'HomeController/index');
 Router::get('home/start',	'HomeController/start');
 Router::get('home/login',	'HomeController/login');
 
+
+
 //Admistrador
 Router::get('admistrador/admistrador',	'AdmistradorController/admistrador');
+
+//Gestao de operadores
 Router::get('admistrador/admistradorGestaoOperadores',	'AdmistradorController/admistradorGestaoOperadores');
 Router::get('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/admistradorGestaoOperadoresInserir');
-Router::get('admistrador/InserirOperador',	'AdmistradorController/InserirOperador');
+Router::post('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/InserirOperador');
+Router::get('admistrador/removerOperador',	'AdmistradorController/removerOperador');
+Router::get('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/admistradorGestaoOperadoresAlterar');
+Router::post('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/AlterarOperador');
+
+//Gestao de gestores de voo
+Router::get('admistrador/admistradorGestaoGestores',	'AdmistradorController/admistradorGestaoGestores');
+Router::get('admistrador/admistradorGestoresInserir',	'AdmistradorController/admistradorGestoresInserir');
+Router::post('admistrador/admistradorGestoresInserir',	'AdmistradorController/InserirGestor');
+Router::get('admistrador/removerGestor',	'AdmistradorController/removerGestor');
+Router::get('admistrador/admistradorGestoresAlterar',	'AdmistradorController/admistradorGestoresAlterar');
+Router::post('admistrador/admistradorGestoresAlterar',	'AdmistradorController/AlterarGestor');
+
+//Gestao Aeroportos
+Router::get('admistrador/admistradorAeroportos',	'AdmistradorController/admistradorAeroportos');
+Router::get('admistrador/admistradorAeroportosInserir',	'AdmistradorController/admistradorAeroportosInserir');
+Router::post('admistrador/admistradorAeroportosInserir',	'AdmistradorController/InserirAeroporto');
+Router::get('admistrador/removerAeroporto',	'AdmistradorController/removerAeroporto');
+Router::get('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/admistradorAeroportosAlterar');
+Router::post('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/AlterarAeroporto');
+
+
+
 
 Router::get('test/index',  'TestController/index');
 
