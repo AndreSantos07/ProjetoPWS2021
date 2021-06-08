@@ -58,8 +58,12 @@ Router::get('voos/voo',	'VooController/index');
 
 //Login
 Router::post('home/login','UtilizadorController/validar');
+Router::get('passageiro/logout','PassageiroController/logout');
+Router::get('passageiro/passageiro','PassageiroController/passageiro');
 
-
+//voos
+Router::get('voos/index',	'VooController/index');
+Router::post('voos/index','VooController/pesquisar');
 
 
 
