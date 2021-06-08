@@ -44,7 +44,7 @@ Layout::includeLayout('header') ?>
 
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <b><a href="">Esqueceu-se da password?</a></b>
+
                                     </div>
                                     <div class="col-lg-4 text-right">
                                         <button name="login" class="btn btn-action" type="submit">Login</button>
