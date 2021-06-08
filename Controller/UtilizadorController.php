@@ -1,9 +1,11 @@
 <?php
 use ArmoredCore\Controllers\BaseController;
 use ArmoredCore\Interfaces\ResourceControllerInterface;
+use ArmoredCore\WebObjects\Post;
 use ArmoredCore\WebObjects\Redirect;
 use ArmoredCore\WebObjects\Session;
 use ArmoredCore\WebObjects\View;
+use ArmoredCore\WebObjects\URL;
 use Carbon\Carbon;
 use ArmoredCore\WebObjects\Debug;
 use Tracy\Dumper;
@@ -19,7 +21,7 @@ class UtilizadorController extends BaseController implements ResourceControllerI
 
     public function index(){
 
-        //$voos = Voos::all();
+        //$voos = Flight::all();
 
         //return view::make('voos.voo',['voos' => $voos]);
 
@@ -27,6 +29,7 @@ class UtilizadorController extends BaseController implements ResourceControllerI
     }
 
     public function validar(){
+
         $user=Post::get("user");
         $pass=Post::get("pass");
 
@@ -38,12 +41,14 @@ class UtilizadorController extends BaseController implements ResourceControllerI
 
         if($utilizador!=''){
 
-            $_SESSION['tipo'] = $utilizador->tipoperfil;
+            $_SESSION['tipo'] = $utilizador->profiletype;
+            $_SESSION['user_id']=$utilizador->user_id;
 
             switch($_SESSION['tipo']){
                 case $_SESSION['tipo'] == "passageiro":
                     echo "É PASSAGEIRO";
 
+                    Redirect::toRoute('passageiro/passageiro');
                     break;
 
                 case $_SESSION['tipo'] == "administrador":
@@ -60,6 +65,7 @@ class UtilizadorController extends BaseController implements ResourceControllerI
                     break;
             }
         }
+
     }
 
     public function start(){
