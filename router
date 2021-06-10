@@ -102,5 +102,7 @@ Router::get('passagem/comprar','PassageiroController/comprar');
 Router::post('passagem/validar','PassageiroController/validarcompra');
 
 
+Router::get('voosescalas/vooescala',	'VooescalaController/index');
+
 
 /************** End of URLEncoder Routing Rules ************************************/
