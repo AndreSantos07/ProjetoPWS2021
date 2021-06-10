@@ -1,0 +1,94 @@
+<?php
+use ArmoredCore\WebObjects\Asset;
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\ErrMgr;
+
+Layout::includeLayout('indexheader'); ?>
+
+<?php $voo = Data::get('voo')?>
+<?php ErrMgr::attach($voo) ?>
+
+    <!-- Header -->
+    <!--<header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead"><b>RAR Aeroportos</b><br><small><b>Desde</b> 2021</small><br>A voar consigo</h1>
+                <p class="tagline">Desenvolvendo as melhores viagens. Sempre com os melhores profisionais.</p>
+                <p><a class="btn btn-action btn-lg" role="button" href="<?= Url::toRoute('home/start')?>">Comece agora</a></p>
+                <p class="small">Por<i> Ricardo, André, Rafael</i></p>
+            </div>
+        </div>
+    </header>-->
+    <!-- /Header -->
+    <head>
+        
+    </head>
+
+
+    <body>
+
+    <?php $aeroportos=\ArmoredCore\WebObjects\Data::get('aeroportos'); ?>
+
+        <div class="container" style="margin-top: 150px;">
+            <h2>Dados do voo:</h2><br>
+
+            <form method="POST" action="<?php Url::toRoute('gestor/InserirVoo')?>">
+
+                <div class="top-margin">
+                    <label>Origem <span class="text-danger">*</span></label>
+
+                    <select name="origin_id" class="form-control">
+                    <?php foreach($aeroportos as $aeroporto){?>
+
+                        <option value="<?=$aeroporto->airport_id?>"><?=$aeroporto->name?></option>
+
+                <?php } ?>
+                    </select>
+
+                    <?= ErrMgr::bind('origin_id') ?>
+                </div>
+
+                <div class="top-margin">
+                    <label>Destino <span class="text-danger">*</span></label>
+
+                    <select name="destiny_id" class="form-control">
+                    <?php foreach($aeroportos as $aeroporto){?>
+
+                        <option value="<?=$aeroporto->airport_id?>"><?=$aeroporto->name?></option>
+
+                <?php } ?>
+                    </select>
+
+                    <?= ErrMgr::bind('destiny_id') ?>
+                </div>
+
+                <div class="top-margin">
+                    <label>Preco <span class="text-danger">*</span></label>
+                    <input type="text" value="<?=$voo->price?>" name="price" class="form-control" placeholder="Insira o preço">
+                    <?= ErrMgr::bind('price') ?>
+                </div>
+
+                <div class="top-margin">
+                    <label>Data/Hora partida <span class="text-danger">*</span></label>
+                    <input type="datetime-local" value="<?=$voo->departure?>" name="departure" class="form-control" placeholder="aaaa-mm-dd --:--">
+                    <?= ErrMgr::bind('departure') ?>
+                </div>
+
+                <div class="top-margin">
+                    <label>Data/Hora chegada <span class="text-danger">*</span></label>
+                    <input type="datetime-local" value="<?=$voo->arrival?>" name="arrival" class="form-control" placeholder="aaaa-mm-dd --:--">
+                    <?= ErrMgr::bind('arrival') ?>
+                </div>
+
+
+                <div class="top-margin">
+					<button class="btn btn-action" type="submit">Inserir</button>
+				</div>
+            </form> 
+
+        </div>
+    </body>
+
+<?php Layout::includeLayout('footer')?> 
