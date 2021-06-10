@@ -52,6 +52,35 @@ class PassageiroController extends BaseController
         $utilizador->save();
         Redirect::toRoute('passageiro/PassageiroIndex');
     }
+    
+    public function logout(){
+
+        session_destroy();
+        return View::make('home.index');
+    }
+
+    public function comprar($flight){
+
+        return View::make('passagem.index',['flight_id'=>$flight]);
+    }
+
+    public function validarcompra(){
+
+        $ticket= new Ticket_sale();
+        $ticket->purchasedate=Post::get("purchasedate");
+        $ticket->type=Post::get("type");
+        $ticket->save();
+
+        $passagem = Ticket_sale::last();
+
+        $flight_ticket = new Flights_ticket_sale();
+        $flight_ticket->ticket_id = $passagem->ticket_id;
+        $flight_ticket->flight_id = Post::get("flight");
+        $flight_ticket->type = Post::get("type");
+        $flight_ticket->save();
+
+        Redirect::toRoute("voos/index");
+    }
 
 
 }
