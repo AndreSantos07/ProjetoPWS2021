@@ -23,30 +23,60 @@ Router::get('home/login',	'HomeController/login');
 //Admistrador
 Router::get('admistrador/admistrador',	'AdmistradorController/admistrador');
 
-//Gestao de operadores
-Router::get('admistrador/admistradorGestaoOperadores',	'AdmistradorController/admistradorGestaoOperadores');
-Router::get('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/admistradorGestaoOperadoresInserir');
-Router::post('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/InserirOperador');
-Router::get('admistrador/removerOperador',	'AdmistradorController/removerOperador');
-Router::get('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/admistradorGestaoOperadoresAlterar');
-Router::post('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/AlterarOperador');
+    //Gestao de operadores
+    Router::get('admistrador/admistradorGestaoOperadores',	'AdmistradorController/admistradorGestaoOperadores');
+    Router::get('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/admistradorGestaoOperadoresInserir');
+    Router::post('admistrador/admistradorGestaoOperadoresInserir',	'AdmistradorController/InserirOperador');
+    Router::get('admistrador/removerOperador',	'AdmistradorController/removerOperador');
+    Router::get('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/admistradorGestaoOperadoresAlterar');
+    Router::post('admistrador/admistradorGestaoOperadoresAlterar',	'AdmistradorController/AlterarOperador');
 
-//Gestao de gestores de voo
-Router::get('admistrador/admistradorGestaoGestores',	'AdmistradorController/admistradorGestaoGestores');
-Router::get('admistrador/admistradorGestoresInserir',	'AdmistradorController/admistradorGestoresInserir');
-Router::post('admistrador/admistradorGestoresInserir',	'AdmistradorController/InserirGestor');
-Router::get('admistrador/removerGestor',	'AdmistradorController/removerGestor');
-Router::get('admistrador/admistradorGestoresAlterar',	'AdmistradorController/admistradorGestoresAlterar');
-Router::post('admistrador/admistradorGestoresAlterar',	'AdmistradorController/AlterarGestor');
+    //Gestao de gestores de voo
+    Router::get('admistrador/admistradorGestaoGestores',	'AdmistradorController/admistradorGestaoGestores');
+    Router::get('admistrador/admistradorGestoresInserir',	'AdmistradorController/admistradorGestoresInserir');
+    Router::post('admistrador/admistradorGestoresInserir',	'AdmistradorController/InserirGestor');
+    Router::get('admistrador/removerGestor',	'AdmistradorController/removerGestor');
+    Router::get('admistrador/admistradorGestoresAlterar',	'AdmistradorController/admistradorGestoresAlterar');
+    Router::post('admistrador/admistradorGestoresAlterar',	'AdmistradorController/AlterarGestor');
 
-//Gestao Aeroportos
-Router::get('admistrador/admistradorAeroportos',	'AdmistradorController/admistradorAeroportos');
-Router::get('admistrador/admistradorAeroportosInserir',	'AdmistradorController/admistradorAeroportosInserir');
-Router::post('admistrador/admistradorAeroportosInserir',	'AdmistradorController/InserirAeroporto');
-Router::get('admistrador/removerAeroporto',	'AdmistradorController/removerAeroporto');
-Router::get('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/admistradorAeroportosAlterar');
-Router::post('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/AlterarAeroporto');
+    //Gestao Aeroportos
+    Router::get('admistrador/admistradorAeroportos',	'AdmistradorController/admistradorAeroportos');
+    Router::get('admistrador/admistradorAeroportosInserir',	'AdmistradorController/admistradorAeroportosInserir');
+    Router::post('admistrador/admistradorAeroportosInserir',	'AdmistradorController/InserirAeroporto');
+    Router::get('admistrador/removerAeroporto',	'AdmistradorController/removerAeroporto');
+    Router::get('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/admistradorAeroportosAlterar');
+    Router::post('admistrador/admistradorAeroportosAlterar',	'AdmistradorController/AlterarAeroporto');
 
+//GESTOR DE VOOS
+Router::get('gestor/gestor',	'GestorController/gestor');
+
+    //Gestao de avioes
+    Router::get('gestor/gestorAvioes',	'GestorController/gestorAvioes');
+    Router::get('gestor/gestorAvioesInserir',	'GestorController/gestorAvioesInserir');
+    Router::post('gestor/gestorAvioesInserir',	'GestorController/InserirAviao');
+    Router::get('gestor/removerAviao',	'GestorController/removerAviao');
+    Router::get('gestor/gestorAvioesAlterar',	'GestorController/gestorAvioesAlterar');
+    Router::post('gestor/gestorAvioesAlterar',	'GestorController/AlterarAviao');
+
+    //Gestao de escalas
+    Router::get('gestor/gestorEscalas',	'GestorController/gestorEscalas');
+    Router::get('gestor/gestorEscalasInserir',	'GestorController/gestorEscalasInserir');
+    Router::post('gestor/gestorEscalasInserir',	'GestorController/InserirEscala');
+    Router::get('gestor/removerEscala',	'GestorController/removerEscala');
+    Router::get('gestor/gestorEscalasAlterar',	'GestorController/gestorEscalasAlterar');
+    Router::post('gestor/gestorEscalasAlterar',	'GestorController/AlterarEscala');
+
+    //Gestao voos
+    Router::get('gestor/gestorVoos',	'GestorController/gestorVoos');
+    Router::get('gestor/gestorVoosInserir',	'GestorController/gestorVoosInserir');
+    Router::post('gestor/gestorVoosInserir',	'GestorController/InserirVoo');
+    Router::get('gestor/removerVoo',	'GestorController/removerVoo');
+    Router::get('gestor/gestorVoosAlterar',	'GestorController/gestorVoosAlterar');
+    Router::post('gestor/gestorVoosAlterar',	'GestorController/AlterarVoo');
+    Router::get('gestor/gestorGerirEscalas',	'GestorController/gestorGerirEscalas');
+    Router::get('gestor/gestorGerirEscalasInserir',	'GestorController/gestorGerirEscalasInserir');
+    Router::post('gestor/gestorGerirEscalasInserir',	'GestorController/InserirEscalaVoo');
+    Router::get('gestor/removerEscalaVoo',	'GestorController/removerEscalaVoo');
 
 
 
