@@ -65,6 +65,13 @@ Router::get('passageiro/passageiro','PassageiroController/passageiro');
 Router::get('voos/index',	'VooController/index');
 Router::post('voos/index','VooController/pesquisar');
 
+//passageiro
+Router::get('passageiro/passageiro', 'PassageiroController/passageiro');
 
+Router::get('passageiro/PassageiroRegisto', 'PassageiroController/Registo');
+Router::post('passageiro/PassageiroRegisto', 'PassageiroController/GuardarRegisto');
+
+Router::get('passageiro/PassageiroAlterarRegisto', 'PassageiroController/AlterarRegisto');
+Router::post('passageiro/PassageiroAlterarRegisto', 'PassageiroController/GuardarAlterarRegisto');
 
 /************** End of URLEncoder Routing Rules ************************************/
