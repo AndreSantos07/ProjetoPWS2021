@@ -1,0 +1,42 @@
+<?php
+use ArmoredCore\WebObjects\Asset;
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\ErrMgr;
+
+Layout::includeLayout('headerlog'); ?>
+
+<?php $flight_id=\ArmoredCore\WebObjects\Data::get('flight_id') ?>
+
+
+
+    <body>
+    <div class="container" style="margin-top: 100px; margin-bottom: 150px;">
+        <h2>Passagem</h2><br>
+
+        <form method="POST" action="<?= Url::toRoute('passagem/validar')?>">
+
+            <select name="type">
+                <option value="Ida">Ida</option>
+                <option value="Ida e Volta">Ida e Volta</option>
+            </select>
+
+            <div class="top-margin">
+                <label>Data de compra <span class="text-danger"></span></label>
+                <input type="datetime-local" value="" name="purchasedate" class="form-control" placeholder="Insira a data de compra">
+
+            </div>
+
+            <input type="hidden" name="flight" value="<?= $flight_id ?>"></input>
+
+            <div class="top-margin">
+                <button class="btn btn-action" type="submit">Comprar</button>
+            </div>
+        </form>
+
+    </div>
+    </body>
+
+
+<?php Layout::includeLayout('footer')?>
