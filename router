@@ -79,13 +79,6 @@ Router::get('gestor/gestor',	'GestorController/gestor');
     Router::get('gestor/removerEscalaVoo',	'GestorController/removerEscalaVoo');
 
 
-
-Router::get('test/index',  'TestController/index');
-
-Router::get('aeroportos/index',	'AeroportoController/index');
-
-Router::get('voos/voo',	'VooController/index');
-
 //Login
 Router::post('home/login','UtilizadorController/validar');
 Router::get('passageiro/logout','PassageiroController/logout');
@@ -103,5 +96,11 @@ Router::post('passageiro/PassageiroRegisto', 'PassageiroController/GuardarRegist
 
 Router::get('passageiro/PassageiroAlterarRegisto', 'PassageiroController/AlterarRegisto');
 Router::post('passageiro/PassageiroAlterarRegisto', 'PassageiroController/GuardarAlterarRegisto');
+
+//passagem
+Router::get('passagem/comprar','PassageiroController/comprar');
+Router::post('passagem/validar','PassageiroController/validarcompra');
+
+
 
 /************** End of URLEncoder Routing Rules ************************************/
