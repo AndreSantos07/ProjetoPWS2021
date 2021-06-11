@@ -58,10 +58,12 @@ class UtilizadorController extends BaseController implements ResourceControllerI
 
                 case $_SESSION['tipo'] == "operador":
                     echo "É OPERADOR";
+                    Redirect::toRoute('checkin/checkin');
                     break;
 
                 case $_SESSION['tipo'] == "gestor":
                     echo "É GESTOR";
+                    Redirect::toRoute('gestor/gestor');
                     break;
             }
         }
