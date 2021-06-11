@@ -32,6 +32,14 @@ class PassageiroController extends BaseController
         $utilizador = new User(Post::getAll());
 
         $utilizador->save();
+
+        $Lastuser = User::last();
+        $passageiro = new Passenger();
+        $passageiro->user_id = $Lastuser->user_id;
+        $passageiro->checkin = 'Nao';
+
+        $passageiro->save();
+
         Redirect::toRoute('home/login');
     }
 
