@@ -35,9 +35,12 @@ class VooController extends BaseController implements ResourceControllerInterfac
 
         $origem=Post::get("origem");
         $destino=Post::get("destino");
+        $departure=Post::get("departure");
+        $departure2=Post::get("departure2");
+
         $aeroportos= Airport::all();
 
-        $voos = Flight::find('all', array('conditions' => "origin_id = '$origem' AND destiny_id = '$destino'"));
+        $voos = Flight::find('all', array('conditions' => "origin_id = '$origem' AND destiny_id = '$destino' AND date(departure) >= '$departure' AND date(departure) <= '$departure2'"));
 
 
         return View::make('voos.index',['voos' => $voos, 'aeroportos' => $aeroportos]);
