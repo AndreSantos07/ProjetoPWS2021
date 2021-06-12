@@ -34,11 +34,6 @@ class PassageiroController extends BaseController
         $utilizador->save();
 
         $Lastuser = User::last();
-        $passageiro = new Passenger();
-        $passageiro->user_id = $Lastuser->user_id;
-        $passageiro->checkin = 'Nao';
-
-        $passageiro->save();
 
         Redirect::toRoute('home/login');
     }
@@ -74,9 +69,11 @@ class PassageiroController extends BaseController
 
     public function validarcompra(){
 
-        $ticket= new Ticket_sale();
-        $ticket->purchasedate=Post::get("purchasedate");
-        $ticket->type=Post::get("type");
+        $ticket = new Ticket_sale();
+        $ticket->purchasedate = Post::get("purchasedate");
+        $ticket->type = Post::get("type");
+        $ticket->checkin = 'Nao';
+        $ticket->user_id = $_SESSION['user_id'];
         $ticket->save();
 
         $passagem = Ticket_sale::last();
