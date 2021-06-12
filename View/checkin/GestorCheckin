@@ -1,0 +1,52 @@
+<?php
+use ArmoredCore\WebObjects\Asset;
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Data;
+Layout::includeLayout('headerback'); ?>
+
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+
+
+    <body>
+        <div class="container" style="margin-top: 150px;">
+            <h1>Checkin:</h1>
+            <br>
+            <?php $passagens=\ArmoredCore\WebObjects\Data::get('passagens'); ?>
+            <table style="width:100%">
+                <tr>
+                    <th>Id da passagem</th>
+                    <th>Data de Compra</th>
+                    <th>Tipo</th>
+                    <th>Id do utilizador</th>
+                    <th>Checkin</th>
+                    <th colspan="2">Gestão</th>
+                </tr>
+                <?php foreach($passagens as $pass){?>
+                    <tr>
+                        <td><?= $pass->ticket_id ?></td>
+                        <td><?= $pass->purchasedate ?></td>
+                        <td><?= $pass->type ?></td>
+                        <td><?= $pass->user_id ?></td>
+                        <td><?= $pass->checkin ?></td>
+                        <td><a href="<?= Url::toRoute('checkin/DetalhesUtilizador', $pass->user_id) ?>" class="btn btn-warning" role="button">Detalhes do utilizador</a></td>
+                        <td><a href="<?= Url::toRoute('checkin/darCheckin', $pass->ticket_id) ?>" class="btn btn-info" role="button">Dar Checkin</a></td>
+                    </tr>
+                <?php } ?>
+            </table>
+            <br>
+        </div>
+    </body>
+
+
+    
+
+<?php Layout::includeLayout('footer')?> 
