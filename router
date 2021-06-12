@@ -77,6 +77,12 @@ Router::get('gestor/gestor',	'GestorController/gestor');
     Router::get('gestor/gestorGerirEscalasInserir',	'GestorController/gestorGerirEscalasInserir');
     Router::post('gestor/gestorGerirEscalasInserir',	'GestorController/InserirEscalaVoo');
     Router::get('gestor/removerEscalaVoo',	'GestorController/removerEscalaVoo');
+    
+
+//GESTOR CHECKIN
+Router::get('checkin/checkin',	'CheckinController/checkin');
+Router::get('checkin/darCheckin',	'CheckinController/darCheckin');
+Router::get('checkin/DetalhesUtilizador',	'CheckinController/DetalhesUtilizador');    
 
 
 //Login
