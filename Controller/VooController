@@ -47,6 +47,11 @@ class VooController extends BaseController implements ResourceControllerInterfac
 
     }
 
+    public function verEscalas($flight_id){
+        $escalas = Flights_scale::find('all', array('conditions' => "flight_id = '$flight_id' "));
+        return View::make('voos.verEscalas',['escalas'=>$escalas]);
+    }
+
     public function start(){
 
         //View::attachSubView('titlecontainer', 'layout.pagetitle', ['title' => 'Quick Start']);
