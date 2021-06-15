@@ -32,28 +32,25 @@ class PassageiroController extends BaseController
         $utilizador = new User(Post::getAll());
 
         $utilizador->save();
-
-        $Lastuser = User::last();
-
-        Redirect::toRoute('home/login');
+        Redirect::toRoute('passageiro/passageiro');
     }
 
         public function AlterarRegisto(){
-            $utilizador = User::find($_SESSION['user_id']);
-
-            if (is_null($utilizador)) {
-                //TODO redirect to standard error page
-            } else {
-                return View::make('passageiro.PassageiroAlterarRegisto', ['utilizador' => $utilizador]);
-            }
+        $user = $_SESSION['user_id'];
+        $utilizador = User::first('all', array('conditions' => "user_id = '$user'"));
+        if (is_null($utilizador)) {
+            //TODO redirect to standard error page
+        } else {
+            return View::make('passageiro.PassageiroAlterarRegisto', ['utilizador' => $utilizador]);
         }
+    }
 
-    public function GuardarAlterarRegisto($idutilizador){
-        $utilizador = User::find([$idutilizador]);
+    public function GuardarAlterarRegisto($user_id){
+        $utilizador = User::first('all', array('conditions' => "user_id = '$user_id'"));
         $utilizador->update_attributes(Post::getAll());
 
         $utilizador->save();
-        Redirect::toRoute('passageiro/PassageiroIndex');
+        Redirect::toRoute('passageiro/passageiro');
     }
     
     public function RemoverRegisto(){
