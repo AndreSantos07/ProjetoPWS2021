@@ -24,7 +24,7 @@ Layout::includeLayout('headerlog'); ?>
         <ul>
             <li><a href="<?= Url::toRoute('admistrador/admistradorGestaoOperadores')?>">Alterar Dados</a></li>
             <li><a href="<?= Url::toRoute('voos/index')?>">Ver Voos</a></li>
-            <li><a href="<?= Url::toRoute('')?>">Historico de Passagens</a></li>
+            <li><a href="<?= Url::toRoute('passagem/historico')?>">Historico de Passagens</a></li>
         </ul>
     </div>
     </body>
