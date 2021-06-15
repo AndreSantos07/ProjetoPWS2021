@@ -29,6 +29,38 @@ Layout::includeLayout('headerlog'); ?>
             </div>
 
             <input type="hidden" name="flight" value="<?= $flight_id ?>"></input>
+            
+            <br><br>
+            <div class="container" id="paymentForm" style="margin: 0px; padding:0px;">
+                Detalhes Pagamento
+                <ul>
+
+                    <li>
+                        <label>Numero do Cartão </label>
+                        <input type="text" name="card_number" id="card_number"  maxlength="20" placeholder="1234 5678 9012 3456"/>
+                    </li>
+                    <li>
+                        <label>Nome do Cartão</label>
+                        <input type="text" name="card_name" id="card_name" placeholder="Srinivas Tamada"/>
+                    </li>
+                    <li class="vertical">
+
+                        <ul>
+                            <li>
+                                <label>Expira</label>
+                                <input type="text" name="expiry_month" id="expiry_month" placeholder="MM" style="width: 50px"/>
+                                <input type="text" name="expiry_year" id="expiry_year" placeholder="YY" style="width: 50px"/>
+                            </li>
+                            <li>
+                                <label>CVV</label>
+                                <input type="text" name="cvv" id="cvv" placeholder="123" style="width: 50px"/>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+
+            </div>
 
             <div class="top-margin">
                 <button class="btn btn-action" type="submit">Comprar</button>
