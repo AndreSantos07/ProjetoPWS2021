@@ -96,16 +96,18 @@ Router::post('voos/index','VooController/pesquisar');
 
 //passageiro
 Router::get('passageiro/passageiro', 'PassageiroController/passageiro');
-
 Router::get('passageiro/PassageiroRegisto', 'PassageiroController/Registo');
 Router::post('passageiro/PassageiroRegisto', 'PassageiroController/GuardarRegisto');
-
 Router::get('passageiro/PassageiroAlterarRegisto', 'PassageiroController/AlterarRegisto');
-Router::post('passageiro/PassageiroAlterarRegisto', 'PassageiroController/GuardarAlterarRegisto');
+Router::post('passageiro/GuardarAlterarRegisto', 'PassageiroController/GuardarAlterarRegisto');
+Router::get('passageiro/RemoverRegisto', 'PassageiroController/RemoverRegisto');
 
 //passagem
 Router::get('passagem/comprar','PassageiroController/comprar');
 Router::post('passagem/validar','PassageiroController/validarcompra');
+Router::get('passagem/historico','PassageiroController/historico');
+Router::get('passagem/detalhes','PassageiroController/detalhes');
+Router::post('passagem/imprimir','PassageiroController/imprimir');
 
 
 Router::get('voosescalas/vooescala',	'VooescalaController/index');
