@@ -1,0 +1,73 @@
+<?php
+use ArmoredCore\WebObjects\Asset;
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
+use Tracy\Dumper;
+
+Layout::includeLayout('headerlog');
+?>
+
+
+<?php
+$passagens=\ArmoredCore\WebObjects\Data::get('passagens');
+?>
+
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<h2 style="margin-left: 50px">Historico Passagens</h2>
+
+<table>
+    <tr>
+        <th>Id Ticket</th>
+        <th>Data de compra</th>
+        <th>Tipo</th>
+        <th>Checkin</th>
+        <th></th>
+    </tr>
+
+    <?php
+      foreach ($passagens as $passagem){
+    ?>
+        <tr>
+            <td><?php echo $passagem->ticket_id; ?></td>
+            <td><?php echo $passagem->purchasedate; ?></td>
+            <td><?php echo $passagem->type; ?></td>
+            <td><?php echo $passagem->checkin; ?></td>
+            <td><a href="<?= URL::toRoute("passagem/detalhes", $passagem->ticket_id) ?>" class="btn btn-danger" role="button">Ver detalhes</a></td>
+
+        </tr>
+        <?php
+    }
+    ?>
+
+</table>
+
+
+</body>
+</html>
+
+
+
+<?php Layout::includeLayout('footer')?>
