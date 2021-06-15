@@ -56,6 +56,13 @@ class PassageiroController extends BaseController
         Redirect::toRoute('passageiro/PassageiroIndex');
     }
     
+    public function RemoverRegisto(){
+        $user = $_SESSION['user_id'];
+        $utilizador = User::first('all', array('conditions' => "user_id = '$user'"));
+        $utilizador->delete();
+        Redirect::toRoute('home/index');
+    }
+    
     public function logout(){
 
         session_destroy();
@@ -85,6 +92,30 @@ class PassageiroController extends BaseController
         $flight_ticket->save();
 
         Redirect::toRoute("voos/index");
+    }
+    
+    public function historico(){
+        $passagens = Ticket_sale::find('all', array('conditions' => "user_id = '$_SESSION[user_id]' "));
+
+        return View::make('passagem.historico',['passagens'=>$passagens]);
+    }
+
+    public function detalhes($ticket_id){
+        $passagem = Ticket_sale::first('all', array('conditions' => "ticket_id = '$ticket_id' "));
+
+        $idvoo = Flights_ticket_sale::find_by_sql('select flight_id from flights_ticket_sales where id='.$passagem->ticket_id);
+
+        $voo = Flight::find_by_sql('select * from flights where flight_id='.$idvoo[0]->flight_id);
+
+        $origem = Flight::find_by_sql('select * from airports where airport_id='.$voo[0]->origin_id);
+        $destino = Flight::find_by_sql('select * from airports where airport_id='.$voo[0]->destiny_id);
+
+        //Dumper::dump($destino);
+        return View::make('passagem.detalhes',['passagem'=>$passagem, 'voo'=>$voo, 'origem'=>$origem, 'destino'=>$destino]);
+    }
+
+    public function imprimir(){
+
     }
 
 
