@@ -10,7 +10,7 @@ Layout::includeLayout('indexheader'); ?>
             <div class="row">
                 <h1 class="lead" style="color: #1b181b"><b>RAR Aeroportos</b><br><small style="color: #1b181b"><b>Desde</b> 2021</small><br>A voar consigo</h1>
                 <p style="color: #1b181b" class="tagline">Desenvolvendo as melhores viagens. Sempre com os melhores profisionais.</p>
-                <p><a class="btn btn-action btn-lg" role="button" href="<?= Url::toRoute('home/start')?>">Comece agora</a></p>
+                <p><a class="btn btn-action btn-lg" role="button" href="<?= Url::toRoute('home/login')?>">Comece agora</a></p>
                 <p style="color: #1b181b" class="small">Por<i> Ricardo, André, Rafael</i></p>
             </div>
         </div>
