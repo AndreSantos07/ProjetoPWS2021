@@ -93,6 +93,7 @@ Router::get('passageiro/passageiro','PassageiroController/passageiro');
 //voos
 Router::get('voos/index',	'VooController/index');
 Router::post('voos/index','VooController/pesquisar');
+Router::get('voos/verEscalas','VooController/verEscalas');
 
 //passageiro
 Router::get('passageiro/passageiro', 'PassageiroController/passageiro');
