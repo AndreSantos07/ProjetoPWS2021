@@ -32,7 +32,7 @@ class PassageiroController extends BaseController
         $utilizador = new User(Post::getAll());
 
         $utilizador->save();
-        Redirect::toRoute('passageiro/passageiro');
+        Redirect::toRoute('home/login');
     }
 
         public function AlterarRegisto(){
