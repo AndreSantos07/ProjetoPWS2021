@@ -66,6 +66,9 @@ class UtilizadorController extends BaseController implements ResourceControllerI
                     Redirect::toRoute('gestor/gestor');
                     break;
             }
+        }else{
+            echo '<script>alert("Utilizador ou palavra passe erradas.")</script>';
+            return View::make('home.login');
         }
 
     }
