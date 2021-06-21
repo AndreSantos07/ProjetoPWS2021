@@ -32,59 +32,59 @@ ErrMgr::attach($destino);
 <div class="container" style="margin-top: 150px;">
     <h2>Detalhes da passagem:</h2><br>
 
-    <form method="POST" action="<?= Url::toRoute('passagem/imprimir')?>">
+    <form>
 
         <div class="top-margin">
             <label>Id do Ticket<span class="text-danger"></span></label>
-            <input type="text" value="<?=$passagem->ticket_id?>" name="ticket_id" class="form-control">
+            <input type="text" value="<?=$passagem->ticket_id?>" name="ticket_id" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Data de compra <span class="text-danger"></span></label>
-            <input type="datetime-local" value="<?=$passagem->purchasedate?>" name="purchasedate" class="form-control">
+            <input type="datetime-local" value="<?=$passagem->purchasedate?>" name="purchasedate" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Tipo <span class="text-danger"></span></label>
-            <input type="text" value="<?=$passagem->type?>" name="type" class="form-control">
+            <input type="text" value="<?=$passagem->type?>" name="type" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Id do voo <span class="text-danger"></span></label>
-            <input type="text" value="<?=$voo[0]->flight_id?>" name="flight_id" class="form-control">
+            <input type="text" value="<?=$voo[0]->flight_id?>" name="flight_id" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Origem <span class="text-danger"></span></label>
-            <input type="text" value="<?=$origem[0]->name." (".$origem[0]->location.")"?>" name="flight_id" class="form-control">
+            <input type="text" value="<?=$origem[0]->name." (".$origem[0]->location.")"?>" name="flight_id" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Destino <span class="text-danger"></span></label>
-            <input type="text" value="<?=$destino[0]->name." (".$destino[0]->location.")"?>" name="flight_id" class="form-control">
+            <input type="text" value="<?=$destino[0]->name." (".$destino[0]->location.")"?>" name="flight_id" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Preço do voo <span class="text-danger"></span></label>
-            <input type="text" value="<?=$voo[0]->price."€"?>" name="price" class="form-control">
+            <input type="text" value="<?=$voo[0]->price."€"?>" name="price" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Partida <span class="text-danger"></span></label>
-            <input type="datetime-local" value="<?=$voo[0]->departure?>" name="departure" class="form-control">
+            <input type="datetime-local" value="<?=$voo[0]->departure?>" name="departure" class="form-control" readonly>
 
         </div>
 
         <div class="top-margin">
             <label>Chegada <span class="text-danger"></span></label>
-            <input type="datetime-local" value="<?=$voo[0]->arrival?>" name="arrival" class="form-control">
+            <input type="datetime-local" value="<?=$voo[0]->arrival?>" name="arrival" class="form-control" readonly>
 
         </div>
 
